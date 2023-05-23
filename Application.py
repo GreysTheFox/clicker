@@ -1,14 +1,14 @@
 import pygame
 
 from Settings import Settings
-#from Frames.loadframe import LoadFrame
+from Frames.loadframe import LoadFrame
 from Frames.loginframe import LoginFrame
 
 class Application:
     def __init__(self, screen):
         self.screen = screen
         self.frames = [
-            #LoadFrame(),
+            LoadFrame(),
             LoginFrame(),
             #RegisterFrame(),
             #ClickerFrame()

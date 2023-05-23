@@ -19,7 +19,6 @@ class Button:
         if self.rect.collidepoint(event.pos):
             self.clicked = True
             self.function()
-            print('Say bye')
             self.clicked = False
 
 
@@ -27,4 +26,4 @@ class Button:
         pg.draw.rect(screen, self.color, self.rect, 1)
 
         text_surface = self.font.render(self.text, True, self.color)
-        screen.blit(text_surface, ((self.rect.x + self.rect.w)/2 - 10, self.rect.y + 10))
+        screen.blit(text_surface, ((self.rect.x + 10, self.rect.y + 10)))

@@ -8,5 +8,5 @@ class Settings:
     end = False
 
     @staticmethod
-    def set_scene(index):
-        Settings.scene_index = index
+    def set_frame(index):
+        Settings.frameNumber = index
