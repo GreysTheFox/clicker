@@ -7,7 +7,7 @@ from Settings import Settings
 class RegisterFrame:
     def __init__(self) -> None:
         self.objects = []
-        self.label = Text([Settings.WIDTH//2 - 150, Settings.HEIGHT//2 - 225, 216, 40], 'Simple Clicker', 32, 'white', None)
+        self.label = Text([Settings.WIDTH//2 - 150, Settings.HEIGHT//2 - 225, 216, 40], 'Simple Clicker', 64, 'white', None)
         self.loginField = TextInput(None, '', 'Enter your login...', [Settings.WIDTH//2 - 300, Settings.HEIGHT//2 - 75])
         self.passField = TextInput(None, '', 'Enter your password...', [Settings.WIDTH//2 -300, Settings.HEIGHT//2 - 25])
         self.passRepeatField = TextInput(None, '', 'Repeat your password...', [Settings.WIDTH//2 -300, Settings.HEIGHT//2 + 25])
@@ -15,8 +15,9 @@ class RegisterFrame:
         self.set_objects()
 
     def onClick(self):
-        password = self.passField.text
-        login = self.loginField.text
+        #password = self.passField.text
+        #login = self.loginField.text
+        Settings.set_frame(3)
 
     def onRelease(self):
         pass

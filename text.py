@@ -2,7 +2,7 @@ import pygame
 
 class Text:
     def __init__(self, rect, text, size, color, font):
-        self.font = pygame.font.Font(font, 64)
+        self.font = pygame.font.Font(font, size)
         self.rect = rect
         self.text = text
         self.size = size

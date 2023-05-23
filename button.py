@@ -26,4 +26,4 @@ class Button:
         pg.draw.rect(screen, self.color, self.rect, 1)
 
         text_surface = self.font.render(self.text, True, self.color)
-        screen.blit(text_surface, ((self.rect.x + 10, self.rect.y + 10)))
+        screen.blit(text_surface, ((self.rect.x + self.rect.w/2-25, self.rect.y + self.rect.h/2-10)))

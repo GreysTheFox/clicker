@@ -4,6 +4,7 @@ from Settings import Settings
 from Frames.loadframe import LoadFrame
 from Frames.loginframe import LoginFrame
 from Frames.registerframe import RegisterFrame
+from Frames.clickerframe import ClickerFrame
 
 class Application:
     def __init__(self, screen):
@@ -12,7 +13,7 @@ class Application:
             LoadFrame(),
             LoginFrame(),
             RegisterFrame(),
-            #ClickerFrame()
+            ClickerFrame()
         ]
     
     
