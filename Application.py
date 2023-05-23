@@ -3,6 +3,7 @@ import pygame
 from Settings import Settings
 from Frames.loadframe import LoadFrame
 from Frames.loginframe import LoginFrame
+from Frames.registerframe import RegisterFrame
 
 class Application:
     def __init__(self, screen):
@@ -10,7 +11,7 @@ class Application:
         self.frames = [
             LoadFrame(),
             LoginFrame(),
-            #RegisterFrame(),
+            RegisterFrame(),
             #ClickerFrame()
         ]
     
