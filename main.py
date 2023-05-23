@@ -1,25 +1,14 @@
 import pygame, sys
-from textinput import TextInput
+
+from Settings import Settings
+from Application import Application
 
 def main():
     pygame.init()
-    clock = pygame.time.Clock()
-    screen = pygame.display.set_mode([640, 480])
-
-    text1 = TextInput(None, '', 'insert joke here', [100, 200])
-    while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
-            text1.state_change(event)
-        screen.fill((0, 0, 0))
-
-        text1.update(screen)
-        
-        pygame.display.flip()
-        clock.tick(60)
-
+    pygame.font.init()
+    screen = pygame.display.set_mode([Settings.WIDTH, Settings.HEIGHT])
+    app = Application(screen)
+    app.run()
 
 if __name__ == "__main__":
     main()

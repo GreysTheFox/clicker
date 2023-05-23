@@ -9,9 +9,9 @@ class Text:
         self.color = pygame.Color(color)
         self.texture = None
     
-    def logic(self):
+    def logic(self, event):
         pass
 
     def update(self, screen):
         self.texture = self.font.render(self.text, True, self.color)
-        screen.blit(self.text, (self.rect[0], self.rect[1]))
+        screen.blit(self.texture, (self.rect[0], self.rect[1]))

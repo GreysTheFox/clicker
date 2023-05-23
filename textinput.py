@@ -11,15 +11,16 @@ class TextInput:
         self.color = self.passiveColor
         self.rect = pygame.Rect(pos[0], pos[1], 400, 32)
 
-
-    def state_change(self, event):
+    def clicked(self, event):
         if event.type == pygame.MOUSEBUTTONDOWN and self.rect.collidepoint(event.pos):
             self.isActive = True
             self.color = self.activeColor
         elif event.type == pygame.MOUSEBUTTONDOWN and not self.rect.collidepoint(event.pos):
             self.isActive = False
             self.color = self.passiveColor
-        elif event.type == pygame.KEYDOWN and self.isActive:
+
+    def text_add(self, event):
+        if event.type == pygame.KEYDOWN and self.isActive:
             if event.key == pygame.K_BACKSPACE:
                 self.text = self.text[:-1]
             elif event.key == pygame.K_RETURN:
@@ -27,20 +28,19 @@ class TextInput:
                 self.color = self.passiveColor
             else:
                 self.text += event.unicode
-                
+
     def logic(self, event):
         self.clicked(event)
-        if self.isActive:
-            self.text_add(event)
-
-    def update(self, screen):
         if (self.text == self.baseText and self.isActive):
             self.text = ''
         elif (self.text != self.baseText and self.text != '' and not self.isActive):
             self.text = self.text
         elif (self.text != self.baseText and self.text == '' and not self.isActive):
             self.text = self.baseText
+        if self.isActive:
+            self.text_add(event)
 
+    def update(self, screen):
         pygame.draw.rect(screen, self.color, self.rect, 2)
 
         text_surface = self.font.render(self.text, True, self.color)

@@ -6,15 +6,21 @@ from Settings import Settings
 class LoginFrame:
     def __init__(self) -> None:
         self.objects = []
-        self.label = Text([Settings.WIDTH//2, Settings.HEIGHT//2, 216, 40], 'Simple Clicker', 32, 'white', None)
-        self.loginField = TextInput(None, '', 'Enter your login...', [Settings.WIDTH//2, Settings.HEIGHT//2 - 100])
-        self.passField = TextInput(None, '', 'Enter your password...', [Settings.WIDTH//2, Settings.HEIGHT//2 - 200])
+        self.label = Text([Settings.WIDTH//2 - 150, Settings.HEIGHT//2 - 225, 216, 40], 'Simple Clicker', 32, 'white', None)
+        self.loginField = TextInput(None, '', 'Enter your login...', [Settings.WIDTH//2 - 300, Settings.HEIGHT//2 - 25])
+        self.passField = TextInput(None, '', 'Enter your password...', [Settings.WIDTH//2 -300, Settings.HEIGHT//2 - 75])
+        self.set_objects()
 
     def set_objects(self):
+        print('here')
         self.objects.append(self.label)
         self.objects.append(self.loginField)
         self.objects.append(self.passField)
 
-    def draw(self):
+    def logic(self, event):
         for item in self.objects:
-            item.update(self.screen)
+            item.logic(event)
+
+    def draw(self, screen):
+        for item in self.objects:
+            item.update(screen)
