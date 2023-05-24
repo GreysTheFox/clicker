@@ -36,7 +36,6 @@ def check_member(name, password):
         cursor.execute(select_all_data)
         row = cursor.fetchall()
         if len(row) > 0:
-            print(type(Settings.score))
             Settings.name = name
             Settings.password = password 
             Settings.score = row[0]['score'] 
