@@ -1,4 +1,4 @@
 host = 'Localhost'
-user = 'admin'
+user = 'root'
 password = ''
 db_name = 'clicker'

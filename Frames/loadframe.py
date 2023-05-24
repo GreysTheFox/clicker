@@ -14,11 +14,9 @@ class LoadFrame:
 
     def onClickLogin(self):
         Settings.set_frame(1)
-        print(Settings.frameNumber)
 
     def onClickRegister(self):
         Settings.set_frame(2)
-        print(Settings.frameNumber)
 
     def set_objects(self):
         self.objects.append(self.label)

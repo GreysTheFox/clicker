@@ -3,6 +3,7 @@ from textinput import TextInput
 from text import Text
 from button import Button
 from Settings import Settings
+from SQL import initialize, new_member
 
 class RegisterFrame:
     def __init__(self) -> None:
@@ -12,12 +13,13 @@ class RegisterFrame:
         self.passField = TextInput(None, '', 'Enter your password...', [Settings.WIDTH//2 -300, Settings.HEIGHT//2 - 25])
         self.passRepeatField = TextInput(None, '', 'Repeat your password...', [Settings.WIDTH//2 -300, Settings.HEIGHT//2 + 25])
         self.submit = Button([Settings.WIDTH//2 -300, Settings.HEIGHT//2 + 75, 122, 38], pygame.Color('white'), self.onClick, 'Register')
+        self.connection = initialize()
         self.set_objects()
 
     def onClick(self):
-        #password = self.passField.text
-        #login = self.loginField.text
-        Settings.set_frame(3)
+        if self.passField.text == self.passRepeatField.text:
+            new_member(self.loginField.text, self.passField.text)
+            Settings.set_frame(3)
 
     def onRelease(self):
         pass

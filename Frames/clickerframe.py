@@ -7,14 +7,14 @@ class ClickerFrame:
     def __init__(self) -> None:
         self.objects = []
         self.label = Text([Settings.WIDTH//2 - 250, 25, 92, 18], 'Simple Clicker', 24, 'white', None)
-        self.count = Text([Settings.WIDTH//2 - 10, 25, 92, 18], '0', 48, 'white', None)
+        self.count = Text([Settings.WIDTH//2 - 10, 25, 92, 18], '', 48, 'white', None)
+        self.count.text = str(Settings.score)
         self.click = Button([Settings.WIDTH//2-75, Settings.HEIGHT//2, 150, 150], pygame.Color('white'), self.onClick, 'click')
-        self.counter = 0
         self.set_objects()
 
     def onClick(self):
-        self.counter += 1
-        self.count.text = str(self.counter)
+        Settings.set_score()
+        self.count.text = str(Settings.score)
 
     def onRelease(self):
         pass

@@ -3,6 +3,7 @@ from textinput import TextInput
 from text import Text
 from button import Button
 from Settings import Settings
+from SQL import initialize, check_member
 
 class LoginFrame:
     def __init__(self) -> None:
@@ -14,9 +15,11 @@ class LoginFrame:
         self.set_objects()
 
     def onClick(self):
-        #password = self.passField.text
-        #login = self.loginField.text
-        Settings.set_frame(3)
+        if check_member(self.loginField.text, self.passField.text):
+            Settings.set_frame(3)
+        else:
+            print('Warning, wrong data for login')
+        
 
     def onRelease(self):
         pass
